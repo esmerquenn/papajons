@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.all {
+  width: 100%;
+  padding: 10px;
+}
+
+.img-div {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.logo {
+  width: 120px;
+  margin-right: 10px;
+}
+
+.p-div {
+  padding: 10px 0;
+}
+.contact {
+  height: 8vh;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.navbar {
+  padding: 10px;
+  height: 20vh;
+  background: #ad0f14;
+  display: flex;
+  align-items: end;
+}
+
+.navbarMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  /* width: 60%; */
+  justify-content: space-between;
+  & a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font: bold 0.7em "arial", "sans-serif";
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .all {
+    width: 300px;
+    padding: 0;
+    background: #deeeee;
+  }
+
+  .img-div {
+    width: 300px;
+  }
+  .logo {
+    width: 280px;
+  }
+  .p-div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    & p {
+      font: normal 0.7em/1.5 arial;
+    }
+    & button {
+      border: 1px solid #8787fc;
+      border-radius: 10px;
+      background: #9292ffba;
+      color: #fff;
+      font: normal 1.1em arial;
+      padding: 10px;
+      width: 90px;
+      transition: 0.5s;
+    }
+  }
+  button:hover {
+    background: #8787fc;
+  }
+  h2,
+  h4,
+  h5 {
+    font-weight: normal;
+    font-family: arial;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  h5 {
+    font-size: 0.9em;
+  }
+  .contact {
+    height: 8vh;
+    background: #fff;
+    border: 1px solid #ddd;
+  }
+  .navbar {
+    padding: 0 60px;
+    height: 13.5vh;
+    background: #ad0f14;
+    display: flex;
+    align-items: center;
+  }
+  .navbarMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+    justify-content: space-between;
+    & a {
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px;
+      color: #fff;
+      line-height: 26px;
+      font: bold 1.4em "arial", "sans-serif";
+    }
+  }
+}
