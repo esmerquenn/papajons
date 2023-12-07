@@ -15,6 +15,8 @@ function Navbar() {
           <Link to="/pasta">Pasta</Link>
           <Link to="/desert">Desert</Link>
           <Link to="/icki">Icki</Link>
+          <Link to="/icki">Icki</Link>
+
           <Link to="/sous">Sous</Link>
         </div>
       </div>
