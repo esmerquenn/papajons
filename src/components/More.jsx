@@ -13,7 +13,6 @@ function More() {
   }, []);
 
   console.log(foods);
-  //   const { category, composition, id, img, price } = foods;
   return (
     <div>
       <div className="" key={foods.id}>

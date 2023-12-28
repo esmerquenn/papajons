@@ -7,7 +7,7 @@ export const ProductProvider = ({ children }) => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
     axios
-      .get("https://papaapi.yetim.me/food ")
+      .get("https://papaapi.yetim.me/food")
       .then((res) => setProduct(res.data));
   }, []);
 

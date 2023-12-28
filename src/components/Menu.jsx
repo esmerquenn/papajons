@@ -1,33 +1,37 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-
+// import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { ProductContext } from "../context/UseContext";
+import ModalSizes from "./ModalSizes";
+import Card from "./Card";
+// import { Link } from "react-router-dom";
+// import "bootstrap/dist/css/bootstrap.min.css";
 function Menu() {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://papaapi.yetim.me/food ")
-      .then((res) => setMenu(res.data));
-  }, []);
-  console.log(menu, "menu");
+  const [menu] = useContext(ProductContext);
+  const [modalShow, setModalShow] = useState(false);
+  const [menuid, setMenuId] = useState({});
+  function handleId(id) {
+    setModalShow(true);
+    menu.map((item) =>
+      item.id == id
+        ? setMenuId({
+            id: item.id,
+            img: item.img,
+            name: item.name,
+            price: item.price,
+          })
+        : ""
+    );
+  }
   return (
-    <div className="container">
-      {menu.map((item, i) => (
-        <div className="all" key={i}>
-          <div className="img-div">
-            <img src={item.img} alt="aaaa" />
-          </div>
-          <div className="p-div">
-            <h5>{item.category}</h5>
-            <h2>{item.name}</h2>
-            <p>{item.composition}</p>
-            <h4>{item.price} AZN</h4>
-            <Link to={`/more/${item.id}`}>
-              <button>More</button>
-            </Link>
-          </div>
-        </div>
+    <div className="containere">
+      {menu.map((item) => (
+        <Card key={item.id} item={item} handleId={handleId} />
       ))}
+      <ModalSizes
+        menuid={menuid}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 }

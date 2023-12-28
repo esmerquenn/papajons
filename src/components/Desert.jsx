@@ -1,29 +1,64 @@
 import React from "react";
-import { useContext } from "react";
-import { ProductContext } from "../context/UseContext";
-const Desert = () => {
-  const [data, setData] = useContext(ProductContext);
-  return (
-    <>
-      <div className="container">
-        {data
-          .filter((item) => item.category == "Desserts")
-          .map((item, i) => (
-            <div className="all" key={i}>
-              <div className="img-div">
-                <img src={item.img} alt="aaaa" />
-              </div>
-              <div className="p-div">
-                <h5>{item.category}</h5>
-                <h2>{item.name}</h2>
-                <p>{item.composition}</p>
-                <h4>{item.price} AZN</h4>
-              </div>
-            </div>
-          ))}
-      </div>
-    </>
-  );
-};
+import { DownOutlined, SmileOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Dropdown, Space } from "antd";
+
+const items: MenuProps["items"] = [
+  {
+    key: "1",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.antgroup.com"
+      >
+        1st menu item
+      </a>
+    ),
+  },
+  {
+    key: "2",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.aliyun.com"
+      >
+        2nd menu item (disabled)
+      </a>
+    ),
+    icon: <SmileOutlined />,
+    disabled: true,
+  },
+  {
+    key: "3",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.luohanacademy.com"
+      >
+        3rd menu item (disabled)
+      </a>
+    ),
+    disabled: true,
+  },
+  {
+    key: "4",
+    danger: true,
+    label: "a danger item",
+  },
+];
+
+const Desert: React.FC = () => (
+  <Dropdown menu={{ items }}>
+    <a onClick={(e) => e.preventDefault()}>
+      <Space>
+        Hover me
+        <DownOutlined />
+      </Space>
+    </a>
+  </Dropdown>
+);
 
 export default Desert;
