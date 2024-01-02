@@ -4,7 +4,7 @@ function Foot() {
   return (
     <div className="foot">
       <div>PJ 2023</div>
-      <div>
+      <div className="foot-1">
         <ul>
           <li>haqqimizda</li>
           <li>haqqimizda</li>

@@ -268,8 +268,13 @@ footer {
   color: #fff;
   font: normal 1em arial;
 }
-.foot ul li {
+.foot-1 ul {
   display: inline;
+  padding: 0;
+  width: 30px;
+}
+.foot-1 li {
+  width: 30px;
 }
 .head-p-dive {
   display: flex;
