@@ -1,7 +1,8 @@
 import React from "react";
 import { FaXmark } from "react-icons/fa6";
 
-function SebetMenu({ item, deleteItem, count }) {
+function SebetMenu({ item, deleteItem, handleCount }) {
+  const { name, img, count, priceItem, id, objItem } = item;
   return (
     <div>
       <div>
@@ -9,23 +10,26 @@ function SebetMenu({ item, deleteItem, count }) {
           <div
             className="x-mark"
             onClick={() => {
-              deleteItem(item.id);
+              deleteItem(id);
             }}
           >
-            <h3>{item.name}</h3>
+            <span>
+              <h3>{name}</h3>
+              <p>{objItem}</p>
+            </span>
 
             <FaXmark />
           </div>
           <div className="cardim">
             <div className="basket-div">
-              <img src={item.img} alt={item.name} />
+              <img src={img} alt={name} />
             </div>
-            <div className="basket-count count">
+            <div className="count">
               <div className="counter">
-                <p>{(item.count * item.priceItem).toFixed(2)} ₼</p>
-                <button onClick={() => count(item.id, -1)}>-</button>
-                <span>{item.count}</span>
-                <button onClick={() => count(item.id, 1)}>+</button>
+                <p>{(count * priceItem).toFixed(2)} ₼</p>
+                <button onClick={() => handleCount(id, -1)}>-</button>
+                <span>{count}</span>
+                <button onClick={() => handleCount(id, 1)}>+</button>
               </div>
             </div>
           </div>

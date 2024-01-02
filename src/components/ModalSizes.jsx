@@ -17,16 +17,13 @@ function ModalSizes(props) {
     md: "Orta 30sm",
     lg: "Boyuk 35sm",
   };
+  const [objItem, setObjItem] = useState(obj.xs);
 
   useEffect(() => {
     typeof price !== "object"
       ? setPriceItem(price)
-      : typeof price == "object" && setPriceItem(Object.values(price)[0]);
+      : setPriceItem(Object.values(price)[0]);
   }, [props]);
-
-  function selectedPrice(e) {
-    console.log(e.target);
-  }
 
   // function handleCount(num) {
   //   setCount((prevCount) =>
@@ -45,6 +42,11 @@ function ModalSizes(props) {
     props.show == false && setCount(1);
   }, [props.show]);
 
+  function selectedPrice(e) {
+    setPriceItem(price[e.target.value]);
+    setObjItem(obj[e.target.value]);
+    console.log(e.target.value);
+  }
   function sebeteAt() {
     addSebet({
       id,
@@ -52,7 +54,8 @@ function ModalSizes(props) {
       name,
       count,
       setCount,
-      priceItem: count * priceItem,
+      priceItem,
+      objItem,
     });
 
     props.onHide();
@@ -70,13 +73,19 @@ function ModalSizes(props) {
             onChange={selectedPrice}
             className={`${typeof price === "object" ? "block" : "none"}`}
           >
-            {price
+            {/* {price
               ? Object.entries(price).map((item, i) => (
                   <option key={i} value={item[1]}>
                     {obj[item[0]]}-{item[1]}
                   </option>
                 ))
-              : ""}
+              : ""} */}
+            {price &&
+              Object.entries(price).map(([size, value], i) => (
+                <option key={i} value={size}>
+                  {obj[size]} - {value}
+                </option>
+              ))}
           </select>
           <div className="count">
             <div className="counter">

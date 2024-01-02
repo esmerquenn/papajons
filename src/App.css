@@ -90,6 +90,9 @@ table {
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* @media only screen and(max-width: 768) { */
+p {
+  margin: 0 !important;
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -261,7 +264,6 @@ main {
     & p {
       letter-spacing: 0.6px;
       padding-block: 10px;
-      margin: 0;
     }
   }
 }
@@ -276,11 +278,9 @@ main {
   padding: 5px;
   & .basket-div {
     overflow: hidden;
-    width: 50%;
     border-radius: 10px;
     & img {
       object-fit: cover;
-      width: 100%;
       height: 100px;
     }
   }
@@ -288,16 +288,13 @@ main {
 
 .cardim {
   display: flex;
-  & .basket-count {
+  justify-content: space-between;
+  & .count {
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
-    & p {
-      margin: 0;
-    }
     & .counter {
       text-align: center;
     }
@@ -306,11 +303,34 @@ main {
 .x-mark {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 5px 0;
   & h3 {
-    font-size: 1em;
+    font-size: 1.4em;
     margin: 0;
+  }
+  & p {
+    font-size: 0.7em;
+  }
+  & svg {
+    font-size: 1.4em;
+  }
+}
+.hesab {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & span {
+    font: normal 1.2em monospace;
+  }
+  & button {
+    border: 1px solid #0f9675;
+    background: #0f9675;
+    width: 125px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
   }
 }
 
@@ -367,7 +387,7 @@ footer {
     border: 1px solid #0f9675;
     background: #0f9675;
     width: 25px;
-    color: #333;
+    color: #fff;
     border-radius: 5px;
   }
 }
@@ -402,6 +422,7 @@ option {
     padding-inline: 9%;
   }
 }
+
 @media only screen and (min-width: 992px) {
   .carde {
     width: 340px;
