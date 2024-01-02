@@ -28,15 +28,19 @@ function ModalSizes(props) {
     console.log(e.target);
   }
 
-  function handleCount(eded) {
-    setCount((prevCount) =>
-      prevCount === 1 && eded == -1
-        ? 1
-        : prevCount >= 1
-        ? prevCount + eded
-        : prevCount
-    );
+  // function handleCount(num) {
+  //   setCount((prevCount) =>
+  //     prevCount === 1 && eded == -1
+  //       ? 1
+  //       : prevCount >= 1
+  //       ? prevCount + eded
+  //       : prevCount
+  //   );
+  // }
+  function handleCount(num) {
+    setCount((prevCount) => Math.max(prevCount + num, 1));
   }
+
   useEffect(() => {
     props.show == false && setCount(1);
   }, [props.show]);
@@ -82,7 +86,7 @@ function ModalSizes(props) {
               <span>{count}</span>
               <button onClick={() => handleCount(1)}>+</button>
             </div>
-            <p>{count * priceItem}₼</p>
+            <p>{(count * priceItem).toFixed(2)}₼</p>
           </div>
         </div>
       </Modal.Body>

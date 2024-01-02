@@ -1,58 +1,37 @@
 import { useContext } from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import { Store } from "../context/StoreContex";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import SebetMenu from "./SebetMenu";
 
 function Basket({ show, setShow }) {
   const handleClose = () => setShow(false);
   const { addSebet, sebet, setSebet } = useContext(Store);
-  // sebet[0].setCount(3);
-  // console.log(sebet[0].count);
-  console.log(sebet);
-
+  function deleteItem(id) {
+    setSebet((prev) => prev.filter((item) => item.id !== id));
+  }
+  function count(id, eded) {
+    setSebet((prev) =>
+      prev.map((ss) =>
+        ss.id == id ? { ...ss, count: Math.max(ss.count + eded, 1) } : ss
+      )
+    );
+  }
   return (
     <>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Sebet</Offcanvas.Title>
+          <Offcanvas.Title>Səbət</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div className="containere">
-            {sebet &&
-              sebet.map((item, i) => (
-                <div className="carde" key={i}>
-                  <div className="img-dive">
-                    <img src={item.img} alt={item.name} />
-                  </div>
-                  <h3>{item.name}</h3>
-                  <div className="count">
-                    <div className="counter">
-                      <button
-                        onClick={() => item.setCount((count) => count - 1)}
-                        className=""
-                      >
-                        -
-                      </button>
-                      <span>{item.count}</span>
-                      <button
-                        onClick={() =>
-                          setSebet((prev) =>
-                            prev.map((ss) =>
-                              ss.id == item.id
-                                ? { ...ss, count: ss.count + 1 }
-                                : ss
-                            )
-                          )
-                        }
-                      >
-                        +
-                      </button>
-                    </div>
-
-                    <p>{item.count * item.priceItem}₼</p>
-                  </div>
-                </div>
-              ))}
-          </div>
+          {sebet &&
+            sebet.map((item, i) => (
+              <SebetMenu
+                item={item}
+                deleteItem={deleteItem}
+                count={count}
+                key={i}
+              />
+            ))}
         </Offcanvas.Body>
       </Offcanvas>
     </>
