@@ -7,13 +7,12 @@ function Ingredents() {
   const ingredientData = Array.from(
     new Set(data?.flatMap((item) => item.cath))
   );
-  // data.map((item) =>
-  //   item.category == "Pizzalar" ? console.log(item.cath) : ""
-  // );
-  // console.log(ingredientData);
   return (
-    <div>
-      <ul>
+    <div className="ingredents">
+      <ul className="ingredents-ul">
+        <li>
+          <Link to={`/menu/pizzalar`}>Hamisi</Link>
+        </li>
         {ingredientData.map((item, i) => (
           <li key={i}>
             <Link to={`/menu/pizzalar?cath=${item}`}>{item}</Link>

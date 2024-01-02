@@ -16,12 +16,12 @@ function Basket({ show, setShow }) {
           <Offcanvas.Title>Sebet</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div className="basket-container">
+          <div className="containere">
             {sebet &&
               sebet.map((item, i) => (
-                <div className="basket card" key={i}>
-                  <div className="basket-img">
-                    <img src={item.img} alt="aaaa" />
+                <div className="carde" key={i}>
+                  <div className="img-dive">
+                    <img src={item.img} alt={item.name} />
                   </div>
                   <h3>{item.name}</h3>
                   <div className="count">

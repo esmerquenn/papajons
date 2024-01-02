@@ -6,6 +6,7 @@ import Basket from "./components/Basket";
 function Contact() {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
+  const [cont, setCont] = useState(false);
   return (
     <div className="contact">
       <div className="restoran">

@@ -182,6 +182,7 @@ header {
 }
 .navbarMenue {
   width: 100%;
+  padding: 10px;
   background: #ad0f14;
 }
 .listse {
@@ -191,20 +192,51 @@ header {
     font: normal 1.4rem arial;
     color: #fff;
     text-transform: uppercase;
+    text-decoration: none;
   }
+}
+.listse a::after {
+  content: "";
+  height: 2px;
+  position: absolute;
+  background: #000;
+}
+.ingredents {
+  padding-inline: 19px;
+  margin-inline: auto;
+  margin-block: 15px;
+  ul {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    background: #f1f1f1;
+    padding: 10px;
+    & a {
+      color: #333;
+      text-decoration: none;
+      text-transform: capitalize;
+      font: bold 1em monospace;
+      transition: 0.4s;
+    }
+  }
+}
+.ingredents-ul a:hover {
+  color: #ad0f14;
 }
 /* //////////////////////////////////////////////////////////////////////// */
 main {
   width: 100%;
-  background-color: aliceblue;
 }
 .containere {
+  background: #fff;
+  margin-top: 5px;
+  padding: 10px 0 30px 0;
+}
+.all {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background: #fff;
-  margin-top: 20px;
-  padding: 40px 0;
   gap: 20px;
   align-items: center;
   justify-content: center;
@@ -212,18 +244,20 @@ main {
 .carde {
   width: 90vw;
   & .img-div {
-    width: 100%;
     overflow: hidden;
     & img {
       width: 100%;
+      height: 300px;
       object-fit: cover;
     }
   }
   & .p-dive {
-    padding: 10px;
+    padding: 10px 0;
     font: normal 1em arial;
     & p {
       letter-spacing: 0.6px;
+      padding-block: 10px;
+      margin: 0;
     }
   }
 }
@@ -240,6 +274,7 @@ footer {
 .head-p-dive {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   & h2 {
     font: bold 1.1em arial;
     color: #333;
@@ -254,10 +289,6 @@ footer {
     color: #fff;
   }
 }
-/* .modalim {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.23);
-} */
 .modalBody {
   display: flex;
   flex-direction: column;
@@ -293,7 +324,6 @@ option {
   padding: 10px;
 }
 .img-dive {
-  width: 100%;
   & img {
     width: 100%;
   }
@@ -303,17 +333,17 @@ option {
   .logo {
     width: 30%;
   }
-  .containere {
+  .all {
     flex-direction: row;
   }
   .carde {
     width: 40vw;
   }
+  .ingredents {
+    padding-inline: 9%;
+  }
 }
 @media only screen and (min-width: 992px) {
-  .containere {
-    flex-direction: row;
-  }
   .carde {
     width: 340px;
   }
@@ -324,7 +354,6 @@ option {
     }
   }
   .contact {
-    /* background: #fff; */
     width: 100%;
     height: inherit;
     z-index: inherit;
@@ -381,6 +410,9 @@ option {
       font-size: 1em;
     }
   }
+  .ingredents {
+    padding-inline: 15%;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .navigation-wrappere {
@@ -393,5 +425,8 @@ option {
       text-decoration: none;
       font-size: 1.4em;
     }
+  }
+  .ingredents {
+    padding-inline: 3.3%;
   }
 }

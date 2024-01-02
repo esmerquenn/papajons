@@ -11,7 +11,6 @@ function ModalSizes(props) {
   const [count, setCount] = useState(1);
   const [priceItem, setPriceItem] = useState(5.5);
   const { addSebet, sebet } = useContext(Store);
-
   const obj = {
     xs: "Mini Pizza 15sm",
     sm: "Kicik 23sm",
@@ -26,7 +25,7 @@ function ModalSizes(props) {
   }, [props]);
 
   function selectedPrice(e) {
-    setPriceItem(e.target.value);
+    console.log(e.target);
   }
 
   function handleCount(eded) {
@@ -38,9 +37,9 @@ function ModalSizes(props) {
         : prevCount
     );
   }
-  // useEffect(() => {
-  //   props.show == false && setCount(1);
-  // }, [props.show]);
+  useEffect(() => {
+    props.show == false && setCount(1);
+  }, [props.show]);
 
   function sebeteAt() {
     addSebet({
@@ -66,16 +65,14 @@ function ModalSizes(props) {
           <select
             onChange={selectedPrice}
             className={`${typeof price === "object" ? "block" : "none"}`}
-            name="select"
-            id=""
           >
-            {price &&
-              Object.entries(price).map((item, i) => (
-                <option key={i} value={item[1]}>
-                  {obj[item[0]]}
-                  {item[1]}
-                </option>
-              ))}
+            {price
+              ? Object.entries(price).map((item, i) => (
+                  <option key={i} value={item[1]}>
+                    {obj[item[0]]}-{item[1]}
+                  </option>
+                ))
+              : ""}
           </select>
           <div className="count">
             <div className="counter">

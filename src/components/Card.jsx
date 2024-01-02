@@ -11,7 +11,7 @@ function Card({ item, handleId }) {
         <div className="head-p-dive">
           <h2>{item.name}</h2>
           <Button variant="primary" onClick={() => handleId(item.id)}>
-            modal
+            Bunu Sec
           </Button>
         </div>
         <p>{item.composition}</p>
