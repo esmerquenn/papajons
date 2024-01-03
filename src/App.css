@@ -93,19 +93,18 @@ table {
 p {
   margin: 0 !important;
 }
+.btn {
+  background: #0f9675 !important;
+  border: 1px solid #0f9675 !important;
+}
+.btn:hover {
+  background: #ad0f14 !important;
+}
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.contact {
-  display: flex;
-  justify-content: space-between;
-  & span {
-    font: bold 0.9em monospace;
-  }
 }
 
 .logo {
@@ -205,23 +204,54 @@ header {
   position: absolute;
   background: #000;
 }
-.ingredents {
-  padding-inline: 19px;
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  & li {
+    font: bold 0.9em monospace;
+    & svg {
+      font-size: 1.5em;
+    }
+    & .user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      & p {
+        font-size: 0.9em;
+      }
+      & img {
+        width: 24px;
+      }
+    }
+  }
+}
+.sebetAll {
+}
+
+.same {
   margin-inline: auto;
-  margin-block: 15px;
-  ul {
+  & a {
+    color: #333;
+    text-decoration: none;
+    text-transform: capitalize;
+    font: bold 1em monospace;
+    transition: 0.4s;
+  }
+  & ul {
     display: flex;
     gap: 10px;
     margin: 0;
-    background: #f1f1f1;
     padding: 10px;
-    & a {
-      color: #333;
-      text-decoration: none;
-      text-transform: capitalize;
-      font: bold 1em monospace;
-      transition: 0.4s;
-    }
+  }
+}
+.ingredents {
+  padding-inline: 19px;
+  margin-block: 15px;
+  & ul {
+    background: #f1f1f1;
   }
 }
 .ingredents-ul a:hover {
@@ -407,7 +437,43 @@ option {
     width: 100%;
   }
 }
+/* select {
+  cursor: pointer;
+  font: normal 1em monospace;
+  color: #000000;
+  width: 220px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d5d5d5;
+  outline: none;
+  transition: (all 0.2s ease-in);
+}
 
+options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: darken(#c0392b, 5);
+} */
+.slide {
+  background: #000;
+  width: 90vw;
+  & img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+.menuSlider {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
 @media only screen and (min-width: 768px) {
   .logo {
     width: 30%;
@@ -418,8 +484,42 @@ option {
   .carde {
     width: 40vw;
   }
-  .ingredents {
+  .same {
     padding-inline: 9%;
+  }
+
+  .contact {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    & li {
+      padding-left: 20px;
+      font: bold 1em monospace;
+
+      & svg {
+        font-size: 1.5em;
+      }
+      & .user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        & p {
+          font-size: 0.9em;
+        }
+        & img {
+          width: 24px;
+        }
+      }
+    }
+  }
+  .menuSlider {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .slide {
+    width: 90vw;
   }
 }
 
@@ -490,7 +590,7 @@ option {
       font-size: 1em;
     }
   }
-  .ingredents {
+  .same {
     padding-inline: 15%;
   }
 }
@@ -506,7 +606,7 @@ option {
       font-size: 1.4em;
     }
   }
-  .ingredents {
+  .same {
     padding-inline: 3.3%;
   }
 }

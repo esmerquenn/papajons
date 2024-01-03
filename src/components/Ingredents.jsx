@@ -8,7 +8,7 @@ function Ingredents() {
     new Set(data?.flatMap((item) => item.cath))
   );
   return (
-    <div className="ingredents">
+    <div className="ingredents same">
       <ul className="ingredents-ul">
         <li>
           <Link to={`/menu/pizzalar`}>Hamisi</Link>
