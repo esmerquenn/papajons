@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function Card({ item, handleId }) {
+function Cardd({ item, handleId }) {
   return (
     <div className="carde">
       <div className="img-dive">
@@ -19,5 +19,4 @@ function Card({ item, handleId }) {
     </div>
   );
 }
-
-export default Card;
+export default Cardd

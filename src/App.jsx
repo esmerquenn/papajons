@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Contact from "./Contact";
 import Foot from "./components/Foot";
 import { useEffect, useState } from "react";
+import FootOutlet from "./components/FootOutlet";
 
 function App() {
   const [w, setW] = useState(window.innerWidth);
@@ -38,6 +39,7 @@ function App() {
               <Route path="/" element={<Menu flag={flag} />} />
               <Route path="/more/:id" element={<More />} />
               <Route path="/menu/:category" element={<MenuNav />} />
+              <Route path="/footoutlet" element={<FootOutlet />} />
             </Routes>
           </main>
           <footer>

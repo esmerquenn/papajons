@@ -1,31 +1,38 @@
 import React from "react";
+import logo from "../assets/footer-images-az-AZ.png";
+import { FaFacebookF, FaTwitter, FaInstagram, FaTripadvisor } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Foot() {
   return (
     <div className="foot">
-      <div>PJ 2023</div>
+      <span>PJ 2023</span>
       <div className="foot-1">
         <ul>
-          <li>haqqimizda</li>
-          <li>haqqimizda</li>
-          <li>haqqimizda</li>
-          <li>haqqimizda</li>
+          <li>
+          <Link to={'/footoutlet'}>Haqqimizda</Link>
+          </li>
+          <li>sual-cavab</li>
+          <li>karyera</li>
+          <li>xemir</li>
           <li>Papa-talk qeydler ve sertler</li>
         </ul>
       </div>
-      <div>
-        <ul>
-          <li>logo</li>
-          <li>logo</li>
-          <li>logo</li>
-        </ul>
-        <ul>
-          <li>fc</li>
-          <li>fc</li>
-          <li>fc</li>
-          <li>fc</li>
-        </ul>
-      </div>
+      <img className="esi" src={logo} alt="" />
+      <ul>
+        <li>
+          <FaFacebookF />
+        </li>
+        <li>
+          <FaTwitter />
+        </li>
+        <li>
+          <FaInstagram />
+        </li>
+        <li>
+          <FaTripadvisor />
+        </li>
+      </ul>
     </div>
   );
 }

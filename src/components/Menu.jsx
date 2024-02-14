@@ -38,7 +38,6 @@
 // export default Menu;
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-// import s1 from "../assets/1.png
 import s1 from "../assets/1.png";
 import s2 from "../assets/2.png";
 import s3 from "../assets/3.png";

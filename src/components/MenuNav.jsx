@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { ProductContext } from "../context/UseContext";
 import Ingredents from "./Ingredents";
-import Card from "./Card";
+import Card from "./Cardd";
 import ModalSizes from "./ModalSizes";
 function MenuNav() {
   const { category } = useParams();

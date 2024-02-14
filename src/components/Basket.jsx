@@ -11,16 +11,10 @@ function Basket({ show, setShow }) {
     setSebet((prev) => prev.filter((item) => item.id !== id));
   }
   function handleCount(id, eded) {
-    setSebet((prev) =>
-      prev.map((ss) =>
-        ss.id == id ? { ...ss, count: Math.max(ss.count + eded, 1) } : ss
-      )
-    );
+    setSebet((prev) => prev.map((ss) => (ss.id == id ? { ...ss, count: Math.max(ss.count + eded, 1) } : ss)));
   }
   useEffect(() => {
-    setMebleg(
-      sebet.reduce((acc, item) => acc + item.count * item.priceItem, 0)
-    );
+    setMebleg(sebet.reduce((acc, item) => acc + item.count * item.priceItem, 0));
   }, [sebet]);
 
   return (
@@ -33,19 +27,12 @@ function Basket({ show, setShow }) {
           {sebet &&
             sebet.map((item, i) => (
               <>
-                <SebetMenu
-                  item={item}
-                  deleteItem={deleteItem}
-                  handleCount={handleCount}
-                  key={i}
-                />
+                <SebetMenu item={item} deleteItem={deleteItem} handleCount={handleCount} key={i} />
               </>
             ))}
           <div className="hesab">
             <span>Ümumi məbləğ: {mebleg}</span>
-            <button>
-              {sebet.length > 0 ? "Siparişi Ver" : "Menuya kecin"}
-            </button>
+            {sebet.length > 0 ? <button>Siparişi Ver</button> : <button onHide={handleClose}>Menuya kecin</button>}
           </div>
         </Offcanvas.Body>
       </Offcanvas>
